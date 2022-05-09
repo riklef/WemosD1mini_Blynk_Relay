@@ -20,13 +20,13 @@ AsyncWebServer server(80);
 BLYNK_WRITE(V2) {
   int virtual_pin_value = param.asInt();
   
-  if (virtual_pin_value == 0)
+  if (virtual_pin_value == 1)
   {
-    digitalWrite(RELAY, LOW);
-  }
-  else if (virtual_pin_value == 1)
-  {
+    delay(100);
     digitalWrite(RELAY, HIGH);
+    delay(500);
+    digitalWrite(RELAY, LOW);
+    delay(100);
   }
   
   
