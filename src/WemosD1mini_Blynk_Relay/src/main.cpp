@@ -6,18 +6,20 @@
 #include <BlynkSimpleEsp8266.h>
 #include <Credentials.h>
 
-#define RELAY D2
+// #define RELAY D2
 #define BLYNK_PRINT Serial
 WidgetTerminal terminal(V3);
+
+int RELAY = D2;
 
 const char* ssid = WIFI_SSID;
 const char* password = WIFI_PW;
 
-char auth[] = AUTH;
+char auth[] = BLYNK_AUTH_TOKEN;
 
 AsyncWebServer server(80);
 
-BLYNK_WRITE(V2) {
+BLYNK_WRITE(V5) {
   int virtual_pin_value = param.asInt();
   
   if (virtual_pin_value == 1)
